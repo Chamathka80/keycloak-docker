@@ -17,4 +17,4 @@ COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 # change these values to point to a running postgres instance
 ENV KC_DB_URL=postgres://postgres:e5e57db939b9b5e3b3cc80bcf1186fe0@dokku-postgres-keycloakdb-latest:5432/keycloakdb_latest
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh start --optimized"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh start-dev"]
