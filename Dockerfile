@@ -12,8 +12,6 @@ WORKDIR /opt/keycloak
 RUN keytool -genkeypair -storepass Vizua@123 -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server" -alias server -ext "SAN:c=IP:124.43.162.91" -keystore conf/server.keystore
 RUN /opt/keycloak/bin/kc.sh build
 
-FROM quay.io/keycloak/keycloak:latest
-COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 # change these values to point to a running postgres instance
 ENV KC_DB_URL=postgres://postgres:e5e57db939b9b5e3b3cc80bcf1186fe0@dokku-postgres-keycloakdb-latest:5432/keycloakdb_latest
